@@ -1,41 +1,21 @@
-import sqlite3
 from database import get_db
+import sqlite3
 
-# ---------------- Database Initialization ---------------- #
+# add sqlite models tables first (load them)
+from models import create_tables
 
-def init_db():
-    """Ensures the tables exist before any tools are called."""
-    conn = get_db()
-    # Create the income table
-    conn.execute('''
-        CREATE TABLE IF NOT EXISTS income (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT NOT NULL,
-            amount REAL NOT NULL,
-            month TEXT NOT NULL
-        )
-    ''')
-    # Create the expense table
-    conn.execute('''
-        CREATE TABLE IF NOT EXISTS expense (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT NOT NULL,
-            amount REAL NOT NULL,
-            month TEXT NOT NULL
-        )
-    ''')
-    conn.commit()
-    conn.close()
+# add the income and expense table immediately
+create_tables()
 
-# Run initialization immediately on import
-init_db()
 
-# ---------------- Helper Functions ---------------- #
+# helper function 
 
-def rows_to_dicts(rows):
+def rows_to_dict(rows):
     return [dict(row) for row in rows]
 
-# ---------------- CRUD Functions ---------------- #
+
+# CRUD FUNCTIONS
+
 
 def add_income(name, amount, month):
     conn = get_db()
@@ -45,7 +25,9 @@ def add_income(name, amount, month):
     )
     conn.commit()
     conn.close()
-
+    
+  
+  
 def add_expense(name, amount, month):
     conn = get_db()
     conn.execute(
@@ -54,105 +36,46 @@ def add_expense(name, amount, month):
     )
     conn.commit()
     conn.close()
+        
 
+
+# lists of incomes and expenses
+
+# Example without row_factory
+#row = ('Salary', 3000, 'April')
+#row[0]  # 'Salary'
+#row[1]  # 3000
+#row[2]  # 'April'
+
+# row = rows[0]
+# row['name']   # 'Salary'
+# row['amount'] # 3000
+# row['month']  # 'April'
+
+
+# list of incomes 
 def list_incomes(month):
     conn = get_db()
-    # Ensure we use the Row factory to return data Claude can read
-    conn.row_factory = sqlite3.Row 
+    conn.row_factory = sqlite3.Row
+    
     rows = conn.execute(
         "SELECT * FROM income WHERE month = ?", (month,)
     ).fetchall()
+    
     conn.close()
-    return rows_to_dicts(rows)
+    return rows_to_dict(rows)
+    
 
+
+# list of expenses 
 def list_expenses(month):
     conn = get_db()
     conn.row_factory = sqlite3.Row
+    
     rows = conn.execute(
         "SELECT * FROM expense WHERE month = ?", (month,)
     ).fetchall()
     conn.close()
-    return rows_to_dicts(rows)
+    return rows_to_dict(rows)
 
 
-# from database import get_db
-
-
-# def rows_to_dicts(rows):
-#     return [dict(row) for row in rows]
-
-# # Add Income function 
-
-# def add_income(name, amount, month):
-#     conn = get_db()
-#     conn.execute(
-#         "INSERT INTO income (name, amount, month) VALUES (?, ?, ?)",
-#         (name, amount, month)
-#     )
-#     conn.commit()
-#     conn.close()
-
-
-# # Add Expense
-# def add_expense(name, amount, month):
-#     conn = get_db()
-#     conn.execute(
-#         "INSERT INTO expense (name, amount, month) VALUES (?, ?, ?)",
-#         (name, amount, month)
-#     )
-#     conn.commit()
-#     conn.close()
-
-
-# # list of incomes 
-
-# def list_incomes(month):
-#     conn = get_db()
-#     rows = conn.execute(
-#         "SELECT * FROM income WHERE month = ?", (month,)
-#     ).fetchall()
-#     conn.close()
-#     return rows_to_dicts(rows)
-
-
-
-# # Fetch List of Expenses 
-# def list_expenses(month):
-#     conn = get_db()
-#     rows = conn.execute(
-#         "SELECT * FROM expense WHERE month = ?", (month,)
-#     ).fetchall()
-#     conn.close()
-#     return rows_to_dicts(rows)
-
-
-
-
-
-
-
-
-
-
-
-# shape 
-
-# [
-#     (1, "Salary", 50000, "January"),
-#     (2, "Freelancing", 12000, "January")
-# ]
-
-# [
-#   {
-#     "id": 1,
-#     "name": "Salary",
-#     "amount": 50000,
-#     "month": "January"
-#   },
-#   {
-#     "id": 2,
-#     "name": "Freelancing",
-#     "amount": 12000,
-#     "month": "January"
-#   }
-# ]

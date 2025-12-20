@@ -1,6 +1,5 @@
 import sqlite3
 
-import sqlite3
 
 # DB_NAME = "budget.db"
 
