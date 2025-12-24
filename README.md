@@ -136,7 +136,7 @@ Traditional LLMs are isolated from real-world data. MCP bridges this gap by prov
 
 | Category | Technology | Purpose |
 |----------|-----------|---------|
-| **Language** | Python 3.14+ | Server implementation |
+| **Language** | Python 3.10+ | Server implementation |
 | **Framework** | FastMCP | MCP server framework |
 | **Database** | SQLite (Raw SQL) | Data persistence |
 | **Protocols** | HTTP, SSE, STDIO | Transport layers |
@@ -202,7 +202,7 @@ Traditional LLMs are isolated from real-world data. MCP bridges this gap by prov
 ### System Requirements
 
 - **Operating System**: Windows, macOS, or Linux
-- **Python Version**: 3.14 or higher
+- **Python Version**: 3.10 or higher
 - **Disk Space**: 500MB minimum
 - **Internet**: Required for remote servers
 
@@ -221,7 +221,6 @@ By the end of this course, you'll build a **fully functional FastMCP server** wi
 - ✅ Connects to SQLite database
 - ✅ Performs complete CRUD operations
 - ✅ Supports both STDIO and HTTP/SSE transports
-- ✅ Implements production-ready patterns
 - ✅ Includes error handling and logging
 - ✅ Mimics real-world enterprise LLM tool servers
 
@@ -233,7 +232,7 @@ By the end of this course, you'll build a **fully functional FastMCP server** wi
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/fastmcp-course.git
+git clone https://github.com/GaziAdib/MCP-FASTAPI-Server-Budget-Management
 
 # Navigate to project directory
 cd fastmcp-course
@@ -242,8 +241,8 @@ cd fastmcp-course
 python -m venv venv
 
 # Activate virtual environment
-# On Windows:
-venv\Scripts\activate
+# On Windows with gitbash:
+source venv\Scripts\activate 
 # On macOS/Linux:
 source venv/bin/activate
 
@@ -251,18 +250,20 @@ source venv/bin/activate
 pip install -r requirements.txt
 
 # Run your first MCP server
-python examples/hello_world_server.py
+python main.py
 ```
 
 ### Project Structure
 
 ```
 fastmcp-course/
-├── 📁 examples/           # Sample MCP servers
-├── 📁 lessons/            # Course lessons and materials
-├── 📁 projects/           # Hands-on projects
-├── 📁 resources/          # Additional resources
-├── 📄 requirements.txt    # Python dependencies
+├── 📄 venv/              # venv for environment
+├── 📄 crud.py            # core logics with DB
+├── 📄 main.py            # main Fast MCP server file
+├── 📄 database.py        # setup database
+├── 📄 models.py          # create tables
+├── 📄 schemas.py         # Model Schema Validated
+├── 📄 requirements.txt   # Python dependencies
 └── 📄 README.md          # This file
 ```
 
@@ -386,9 +387,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Specializing in FastMCP • Python • LLM Tooling
 
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-black?style=social&logo=github)](https://github.com/gaziadib)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=social&logo=linkedin)](https://linkedin.com/in/gaziadib)
-[![Twitter](https://img.shields.io/badge/Twitter-Follow-blue?style=social&logo=twitter)](https://twitter.com/gaziadib)
+[![YouTube](https://img.shields.io/youtube/channel/subscribers/YOUR_CHANNEL_ID?style=social&logo=youtube)](https://youtube.com/@GreatAdib)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-black?style=social&logo=github)](https://github.com/GaziAdib/MCP-FASTAPI-Server-Budget-Management)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=social&logo=linkedin)](https://www.linkedin.com/in/gazi-adib-master/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-View-orange?style=social&logo=google-chrome)](https://gazi-adib-portfolio-website.vercel.app/)
+
 
 </div>
 
