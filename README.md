@@ -17,6 +17,30 @@
 
 ---
 
+
+## About Me
+
+Hi! I am Gazi Adib (GreatAdib on YT). I am a Computer Science & Engineering graduate from Bangladesh with a deep passion for teaching, experimenting, building, and simplifying AI, LLMs, and modern software systems for beginners.
+
+I actively work on web applications, AI/ML systems, and backend architectures, and alongside that, I create high-quality educational content and courses  completely free for everyone.
+
+My mission is simple but powerful that is to make quality technical education accessible to all.
+
+
+I strongly believe that true learning happens when concepts are understood deeply and applied practically. That’s why my teaching style focuses on:
+
+1. Clear theory
+
+2. Strong fundamentals
+
+3. Real-world use cases
+
+4. Hands-on implementation
+
+4. I don’t just explain what something is — I show how it actually works in real systems.
+
+
+
 ## 📌 Overview
 
 **FastMCP** is a Python framework that simplifies building servers compliant with the **Model Context Protocol (MCP)**—a modern standard for connecting LLMs like Claude and GPT with external tools, data sources, and web APIs.
@@ -405,21 +429,11 @@ Specializing in FastMCP • Python • LLM Tooling
 
 ---
 
-## 💬 Support
-
-If you have questions or need help:
-
-- 📫 Open an [Issue](https://github.com/yourusername/fastmcp-course/issues)
-- 💬 Join our [Discord Community](https://discord.gg/your-invite)
-- 📧 Email: your.email@example.com
-
----
-
 <div align="center">
 
 ### ⭐ Final Note
 
-*This course bridges the gap between LLMs and real-world systems using modern MCP standards.*
+*This course bridges the gap between LLMs and real-world systems using modern MCP standard utilizing the power of Fast MCP to connect our own custom server and build tools that is how LLM is going to talk to our servers and execute our commands in a natural language that adds, fetch data from database and do amazing stuffs.*
 
 *Designed to be practical, clean, and production-oriented.*
 
@@ -429,6 +443,6 @@ If you have questions or need help:
 
 **Happy Building! 🚀**
 
-Made with ❤️ by developers, for developers
+Made with extreme level of passion for edTech content creation and spreading IT knowledge throughout the world! 
 
 </div>
